@@ -6,23 +6,27 @@
 
 The Coil Generator is a tool developed specifically for PCB designers. It aims to quickly generate PCB coils suitable for projects such as NFC cards, PCB motors, and wireless charging based on user-entered parameters. The following coil types are currently supported:
 
-- Spiral Coil
-- Square Coil
+-   Spiral Coil
+-   Square Coil
 
 Users can configure coils using the following parameters:
 
-- Number of turns
-- Inner radius
-- Track spacing
-- Track width
-- Coil center X and Y coordinates
+-   Number of turns
+-   Inner radius
+-   Track spacing
+-   Track width
+-   Coil center X and Y coordinates
+
+| Feature Demo                   | Advanced Configuration         |
+| ------------------------------ | ------------------------------ |
+| ![alt text](images/image1.png) | ![alt text](images/image2.png) |
 
 ## User Interface
 
 Users can access the following features through the top menu bar:
 
-- PCB Page > Coil > Coil Generator
-- PCB Page > Coil > About
+-   PCB Page > Coil > Coil Generator
+-   PCB Page > Coil > About
 
 ## Future Features
 
