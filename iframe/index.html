@@ -650,6 +650,20 @@
             return tag;
         }
 
+        function applyI18n() {
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                el.textContent = t(el.getAttribute('data-i18n'));
+            });
+            document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
+                el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+                el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+            });
+        }
+
+        applyI18n();
+
         document.addEventListener('DOMContentLoaded', () => {
             let currentUnit = 'mil';
             let advancedExpanded = false;
@@ -910,9 +924,7 @@
                 document.getElementById('acResistancePrefix').textContent = t('AC Resistance:');
                 document.getElementById('qFactorPrefix').textContent = t('Q Factor:');
 
-                document.querySelectorAll('.coil-name').forEach(function (el) {
-                    el.textContent = t(el.getAttribute('data-i18n'));
-                });
+                applyI18n();
 
                 document.getElementById('generateText').textContent = t('Generate');
 
