@@ -1,6 +1,6 @@
 {
-	"displayName": "Coil Creator",
-	"description": "Quick PCB coil generation tool",
+	"线圈生成器": "Coil Creator",
+	"PCB线圈快捷生成工具": "Quick PCB coil generation tool",
 	"Coil": "Coil",
 	"NFC": "NFC",
 	"PCB": "PCB"
