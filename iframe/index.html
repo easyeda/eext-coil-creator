@@ -476,7 +476,7 @@
                         <path d="M16 10.5 A5.5 5.5 0 1 1 10.5 16" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
                         <circle cx="16" cy="16" r="2" fill="currentColor"/>
                     </svg>
-                    <span class="coil-name" data-cn="螺旋线圈" data-en="Spiral Coil">螺旋线圈</span>
+                    <span class="coil-name" data-i18n="Spiral Coil">螺旋线圈</span>
                 </label>
                 <label class="coil-card">
                     <input type="radio" name="coilType" value="square" />
@@ -485,7 +485,7 @@
                         <rect x="9" y="9" width="14" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
                         <rect x="13.5" y="13.5" width="5" height="5" rx="1" fill="currentColor"/>
                     </svg>
-                    <span class="coil-name" data-cn="方形线圈" data-en="Square Coil">方形线圈</span>
+                    <span class="coil-name" data-i18n="Square Coil">方形线圈</span>
                 </label>
                 <label class="coil-card">
                     <input type="radio" name="coilType" value="hexagon" />
@@ -494,7 +494,7 @@
                         <polygon points="16,8 23,12 23,20 16,24 9,20 9,12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
                         <circle cx="16" cy="16" r="2" fill="currentColor"/>
                     </svg>
-                    <span class="coil-name" data-cn="六边形线圈" data-en="Hexagonal Coil">六边形线圈</span>
+                    <span class="coil-name" data-i18n="Hexagonal Coil">六边形线圈</span>
                 </label>
                 <label class="coil-card">
                     <input type="radio" name="coilType" value="octagon" />
@@ -503,7 +503,7 @@
                         <polygon points="16,7 21,10 24,16 21,22 16,25 11,22 8,16 11,10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
                         <circle cx="16" cy="16" r="2" fill="currentColor"/>
                     </svg>
-                    <span class="coil-name" data-cn="八边形线圈" data-en="Octagonal Coil">八边形线圈</span>
+                    <span class="coil-name" data-i18n="Octagonal Coil">八边形线圈</span>
                 </label>
             </div>
         </div>
@@ -644,89 +644,15 @@
     </div>
 
     <script>
+        var edaObj = (typeof eda !== 'undefined') ? eda : (window.parent && window.parent.eda);
+        function t(tag) {
+            if (edaObj && edaObj.sys_I18n) return edaObj.sys_I18n.text(tag);
+            return tag;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            const languages = {
-                cn: {
-                    coilNum: '圈数:',
-                    innerRadius: '内半径:',
-                    trackSpacing: '轨道间距:',
-                    trackWidth: '轨道宽度:',
-                    centerX: '中心X:',
-                    centerY: '中心Y:',
-                    inductance: '电感:',
-                    externalRadiusMM: '外半径:',
-                    externalDiameterMM: '外直径:',
-                    averageDiameterMM: '平均直径:',
-                    coilFillRatio: '填充比:',
-                    coilTotalLength: '线圈总长:',
-                    externalWarring: '电感值仅供参考',
-                    solenoid: '螺旋线圈',
-                    squareCoil: '方形线圈',
-                    hexagonCoil: '六边形线圈',
-                    octagonCoil: '八边形线圈',
-                    generate: '生成',
-                    headerTitle: '线圈生成器',
-                    coilTypeLabel: '线圈类型',
-                    paramsLabel: '参数设置',
-                    advancedLabel: '高级设置',
-                    outputLabel: '计算结果',
-                    capacitance: '谐振电容:',
-                    resonantFreq: '谐振频率:',
-                    resonantImpedance: '谐振阻抗:',
-                    copperThickness: '铜厚:',
-                    temperature: '温度:',
-                    dcResistance: '直流电阻:',
-                    skinDepth: '趋肤深度:',
-                    acResistance: '交流电阻:',
-                    qFactor: 'Q值:',
-                    unitMilLabel: ' (mil)',
-                    unitMmLabel: ' (mm)',
-                },
-                en: {
-                    coilNum: 'Turns:',
-                    innerRadius: 'Inner radius:',
-                    trackSpacing: 'Spacing:',
-                    trackWidth: 'Width:',
-                    centerX: 'Center X:',
-                    centerY: 'Center Y:',
-                    inductance: 'Inductance:',
-                    externalRadiusMM: 'Outer radius:',
-                    externalDiameterMM: 'Outer diameter:',
-                    averageDiameterMM: 'Avg Diameter:',
-                    coilFillRatio: 'Fill Ratio:',
-                    coilTotalLength: 'Coil Length:',
-                    externalWarring: 'Inductance value for reference only',
-                    solenoid: 'Spiral Coil',
-                    squareCoil: 'Square Coil',
-                    hexagonCoil: 'Hexagonal Coil',
-                    octagonCoil: 'Octagonal Coil',
-                    generate: 'Generate',
-                    headerTitle: 'Coil Creator',
-                    coilTypeLabel: 'Coil Type',
-                    paramsLabel: 'Parameters',
-                    advancedLabel: 'Advanced',
-                    outputLabel: 'Results',
-                    capacitance: 'Capacitance:',
-                    resonantFreq: 'Resonant Freq:',
-                    resonantImpedance: 'Resonant Impedance:',
-                    copperThickness: 'Cu Thickness:',
-                    temperature: 'Temperature:',
-                    dcResistance: 'DC Resistance:',
-                    skinDepth: 'Skin Depth:',
-                    acResistance: 'AC Resistance:',
-                    qFactor: 'Q Factor:',
-                    unitMilLabel: ' (mil)',
-                    unitMmLabel: ' (mm)',
-                },
-            };
-            let currentLanguage = 'cn';
             let currentUnit = 'mil';
             let advancedExpanded = false;
-
-            function switchLanguage() {
-                currentLanguage = currentLanguage === 'cn' ? 'en' : 'cn';
-                updateLanguage();
-            }
 
             function switchUnit() {
                 currentUnit = currentUnit === 'mil' ? 'mm' : 'mil';
@@ -949,55 +875,50 @@
             }
 
             function updateLanguage() {
-                const lang = languages[currentLanguage];
-                const unitSuffix = currentUnit === 'mil' ? lang.unitMilLabel : lang.unitMmLabel;
+                var unitSuffix = currentUnit === 'mil' ? ' (mil)' : ' (mm)';
 
-                document.getElementById('coilNumLabel').textContent = lang.coilNum;
-                document.getElementById('innerRadiusLabel').textContent = lang.innerRadius + unitSuffix;
-                document.getElementById('trackSpacingLabel').textContent = lang.trackSpacing + unitSuffix;
-                document.getElementById('trackWidthLabel').textContent = lang.trackWidth + unitSuffix;
-                document.getElementById('centerXLabel').textContent = lang.centerX + unitSuffix;
-                document.getElementById('centerYLabel').textContent = lang.centerY + unitSuffix;
+                document.title = t('Coil Creator');
 
-                document.getElementById('advancedLabel').textContent = lang.advancedLabel;
-                document.getElementById('capacitanceLabel').textContent = lang.capacitance;
-                document.getElementById('copperThicknessLabel').textContent = lang.copperThickness;
-                document.getElementById('temperatureLabel').textContent = lang.temperature;
+                document.getElementById('headerTitle').textContent = t('Coil Creator');
+                document.getElementById('coilTypeLabel').textContent = t('Coil Type');
+                document.getElementById('paramsLabel').textContent = t('Parameters');
+                document.getElementById('advancedLabel').textContent = t('Advanced');
+                document.getElementById('outputLabel').textContent = t('Results');
 
-                document.getElementById('inductancePrefix').textContent = lang.inductance;
-                document.getElementById('externalRadiusPrefix').textContent = lang.externalRadiusMM;
-                document.getElementById('externalDiameterPrefix').textContent = lang.externalDiameterMM;
-                document.getElementById('averageDiameterPrefix').textContent = lang.averageDiameterMM;
-                document.getElementById('coilFillRatioPrefix').textContent = lang.coilFillRatio;
-                document.getElementById('coilTotalLengthPrefix').textContent = lang.coilTotalLength;
-                document.getElementById('externalWarring').textContent = lang.externalWarring;
-                document.getElementById('resonantFreqPrefix').textContent = lang.resonantFreq;
-                document.getElementById('resonantImpedancePrefix').textContent = lang.resonantImpedance;
-                document.getElementById('dcResistancePrefix').textContent = lang.dcResistance;
-                document.getElementById('skinDepthPrefix').textContent = lang.skinDepth;
-                document.getElementById('acResistancePrefix').textContent = lang.acResistance;
-                document.getElementById('qFactorPrefix').textContent = lang.qFactor;
+                document.getElementById('coilNumLabel').textContent = t('Turns:');
+                document.getElementById('innerRadiusLabel').textContent = t('Inner Radius:') + unitSuffix;
+                document.getElementById('trackSpacingLabel').textContent = t('Track Spacing:') + unitSuffix;
+                document.getElementById('trackWidthLabel').textContent = t('Track Width:') + unitSuffix;
+                document.getElementById('centerXLabel').textContent = t('Center X:') + unitSuffix;
+                document.getElementById('centerYLabel').textContent = t('Center Y:') + unitSuffix;
+
+                document.getElementById('capacitanceLabel').textContent = t('Resonant Capacitance:');
+                document.getElementById('copperThicknessLabel').textContent = t('Copper Thickness:');
+                document.getElementById('temperatureLabel').textContent = t('Temperature:');
+
+                document.getElementById('inductancePrefix').textContent = t('Inductance:');
+                document.getElementById('externalRadiusPrefix').textContent = t('Outer Radius:');
+                document.getElementById('externalDiameterPrefix').textContent = t('Outer Diameter:');
+                document.getElementById('averageDiameterPrefix').textContent = t('Average Diameter:');
+                document.getElementById('coilFillRatioPrefix').textContent = t('Fill Ratio:');
+                document.getElementById('coilTotalLengthPrefix').textContent = t('Total Coil Length:');
+                document.getElementById('externalWarring').textContent = t('Inductance Reference');
+                document.getElementById('resonantFreqPrefix').textContent = t('Resonant Frequency:');
+                document.getElementById('resonantImpedancePrefix').textContent = t('Resonant Impedance:');
+                document.getElementById('dcResistancePrefix').textContent = t('DC Resistance:');
+                document.getElementById('skinDepthPrefix').textContent = t('Skin Depth:');
+                document.getElementById('acResistancePrefix').textContent = t('AC Resistance:');
+                document.getElementById('qFactorPrefix').textContent = t('Q Factor:');
 
                 document.querySelectorAll('.coil-name').forEach(function (el) {
-                    el.textContent = el.getAttribute('data-' + currentLanguage);
+                    el.textContent = t(el.getAttribute('data-i18n'));
                 });
 
-                document.getElementById('generateText').textContent = lang.generate;
-                document.getElementById('headerTitle').textContent = lang.headerTitle;
-
-                var coilTypeLabel = document.getElementById('coilTypeLabel');
-                if (coilTypeLabel) coilTypeLabel.textContent = lang.coilTypeLabel;
-
-                var paramsLabel = document.getElementById('paramsLabel');
-                if (paramsLabel) paramsLabel.textContent = lang.paramsLabel;
-
-                var outputLabel = document.getElementById('outputLabel');
-                if (outputLabel) outputLabel.textContent = lang.outputLabel;
+                document.getElementById('generateText').textContent = t('Generate');
 
                 updateUnitDisplay();
             }
 
-            document.getElementById('color_mode').addEventListener('change', switchLanguage);
             document.getElementById('advancedToggle').addEventListener('click', toggleAdvanced);
 
             updateLanguage();
@@ -1070,7 +991,7 @@
                 } else if (inductance_H >= 1e-15) {
                     document.getElementById('inductance').innerText = (inductance_H * 1e15).toLocaleString() + " fH";
                 } else {
-                    document.getElementById('inductance').innerText = '\u7535\u611f\u503c\u8fc7\u5c0f';
+                    document.getElementById('inductance').innerText = t('Inductance Too Small');
                 }
 
                 var copperThicknessOz = Number(document.getElementById('copperThickness').value) || 1;

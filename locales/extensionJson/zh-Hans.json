@@ -1,0 +1,7 @@
+{
+	"displayName": "线圈生成器",
+	"description": "PCB线圈快捷生成工具",
+	"Coil": "线圈",
+	"NFC": "NFC",
+	"PCB": "PCB"
+}

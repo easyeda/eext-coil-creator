@@ -1,0 +1,7 @@
+{
+	"displayName": "Coil Creator",
+	"description": "Quick PCB coil generation tool",
+	"Coil": "Coil",
+	"NFC": "NFC",
+	"PCB": "PCB"
+}
