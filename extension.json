@@ -8,7 +8,7 @@
 	"engines": {
 		"eda": "^2.2.32"
 	},
-	"license": "MIT License",
+	"license": "Apache-2.0",
 	"repository": {
 		"type": "github",
 		"url": "https://github.com/easyeda/eext-coil-creator"
@@ -28,17 +28,12 @@
 		"pcb": [
 			{
 				"id": "Coil",
-				"title": "线圈",
+				"title": "线圈生成器",
 				"menuItems": [
 					{
 						"id": "CoilCreate",
-						"title": "线圈生成器",
+						"title": "打开线圈生成器...",
 						"registerFn": "openIframe"
-					},
-					{
-						"id": "About",
-						"title": "关于...",
-						"registerFn": "about"
 					}
 				]
 			}
